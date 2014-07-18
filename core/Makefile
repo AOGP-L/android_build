@@ -1695,6 +1695,13 @@ bacon: otapackage
 	@echo -e ${CL_CYN}"============================================="${CL_RST}
 	@echo -e ""
 
+ifeq ($(USE_PREBUILT_CHROMIUM),1)
+ifneq ($(PRODUCT_PREBUILT_WEBVIEWCHROMIUM),yes)
+	@echo "Running Chromium prebuilt setup script..."
+	$(hide) . $(TOPDIR)vendor/aogp/utils/chromium_prebuilt.sh $(TOP)
+endif
+endif
+
 ifeq ($(AOGP_CHANGELOG),true)
 # Generate changelog
 	$(hide) ./vendor/aogp/tools/changelog

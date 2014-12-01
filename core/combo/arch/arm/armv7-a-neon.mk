@@ -9,13 +9,17 @@ ARCH_ARM_HAVE_NEON              := true
 ifneq (,$(filter cortex-a15 denver,$(TARGET_$(combo_2nd_arch_prefix)CPU_VARIANT)))
 	arch_variant_cflags := -mcpu=cortex-a15 -mfpu=neon-vfpv4 --param l1-cache-size=16 --param l1-cache-line-size=16 --param l2-cache-size=2048
 else
-ifeq ($(strip $(TARGET_$(combo_2nd_arch_prefix)CPU_VARIANT)),cortex-a8)
+ifeq ($(strip $(TARGET_$(combo_2nd_arch_prefix)CPU_VARIANT)),cortex-a9)
+	arch_variant_cflags := -mcpu=cortex-a9 -mfpu=neon
+else
+ifneq (,$(filter cortex-a8 scorpion,$(TARGET_$(combo_2nd_arch_prefix)CPU_VARIANT)))
 	arch_variant_cflags := -mcpu=cortex-a8 -mfpu=neon
 else
 ifeq ($(strip $(TARGET_$(combo_2nd_arch_prefix)CPU_VARIANT)),cortex-a7)
 	arch_variant_cflags := -mcpu=cortex-a7 -mfpu=neon-vfpv4
 else
 	arch_variant_cflags := -march=armv7-a -mfpu=neon
+endif
 endif
 endif
 endif

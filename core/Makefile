@@ -1005,7 +1005,7 @@ INTERNAL_SYSTEMIMAGE_FILES := $(filter $(TARGET_OUT)/%, \
 
 systemimage-squisher: $(INTERNAL_SYSTEMIMAGE_FILES)
 	@echo -e "Optimizing PNGs to Shrink ROM Size!"
-	$(hide) APKCERTS=$(APKCERTS_FILE) ./vendor/liquid/tools/squisher
+	$(hide) APKCERTS=$(APKCERTS_FILE) ./vendor/aogp/tools/squisher
 
 .PHONY: systemimage-squisher
 
@@ -1662,10 +1662,10 @@ bacon: otapackage
 	$(hide) $(MD5SUM) $(AOGP_TARGET_PACKAGE) > $(AOGP_TARGET_PACKAGE).md5sum
 	@echo -e ${CL_CYN}"Package Complete: $(AOGP_TARGET_PACKAGE)"${CL_RST}
 
-ifeq ($(LIQUID_CHANGELOG),true)
+ifeq ($(AOGP_CHANGELOG),true)
 # Generate changelog
-	$(hide) ./vendor/liquid/tools/changelog
-	$(hide) mv $(PRODUCT_OUT)/Changelog.txt $(PRODUCT_OUT)/$(LIQUID_VERSION)-$(TARGET_PRODUCT).txt
+	$(hide) ./vendor/aogp/tools/changelog
+	$(hide) mv $(PRODUCT_OUT)/Changelog.txt $(PRODUCT_OUT)/$(AOGP_VERSION)-$(TARGET_PRODUCT).txt
 endif
 
 endif    # recovery_fstab is defined

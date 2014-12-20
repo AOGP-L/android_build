@@ -1695,10 +1695,10 @@ bacon: otapackage
 	@echo -e ${CL_CYN}"============================================="${CL_RST}
 	@echo -e ""
 
-ifeq ($(LIQUID_CHANGELOG),true)
+ifeq ($(AOGP_CHANGELOG),true)
 # Generate changelog
-	$(hide) ./vendor/liquid/tools/changelog
-	$(hide) mv $(PRODUCT_OUT)/Changelog.txt $(PRODUCT_OUT)/$(LIQUID_VERSION)-$(TARGET_PRODUCT).txt
+	$(hide) ./vendor/aogp/tools/changelog
+	$(hide) mv $(PRODUCT_OUT)/Changelog.txt $(PRODUCT_OUT)/$(AOGP_VERSION)-$(TARGET_PRODUCT).txt
 endif
 
 endif    # recovery_fstab is defined

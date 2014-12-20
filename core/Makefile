@@ -1659,7 +1659,35 @@ otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)
 bacon: otapackage
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(AOGP_TARGET_PACKAGE)
 	$(hide) $(MD5SUM) $(AOGP_TARGET_PACKAGE) > $(AOGP_TARGET_PACKAGE).md5sum
-	@echo -e ${CL_CYN}"Package Complete: $(AOGP_TARGET_PACKAGE)"${CL_RST}
+	@echo -e ${CL_CYN}""${CL_CYN}
+	@echo -e ${CL_CYN}"          _____                   _______                   _____                    _____          "${CL_CYN}
+	@echo -e ${CL_CYN}"         /\    \                 /::\    \                 /\    \                  /\    \         "${CL_CYN}
+	@echo -e ${CL_CYN}"        /::\    \               /::::\    \               /::\    \                /::\    \        "${CL_CYN}
+	@echo -e ${CL_CYN}"       /::::\    \             /::::::\    \             /::::\    \              /::::\    \       "${CL_CYN}
+	@echo -e ${CL_CYN}"      /::::::\    \           /::::::::\    \           /::::::\    \            /::::::\    \      "${CL_CYN}
+	@echo -e ${CL_CYN}"     /:::/\:::\    \         /:::/~~\:::\    \         /:::/\:::\    \          /:::/\:::\    \     "${CL_CYN}
+	@echo -e ${CL_CYN}"    /:::/__\:::\    \       /:::/    \:::\    \       /:::/  \:::\    \        /:::/__\:::\    \    "${CL_CYN}
+	@echo -e ${CL_CYN}"   /::::\   \:::\    \     /:::/    / \:::\    \     /:::/    \:::\    \      /::::\   \:::\    \   "${CL_CYN}
+	@echo -e ${CL_CYN}"  /::::::\   \:::\    \   /:::/____/   \:::\____\   /:::/    / \:::\    \    /::::::\   \:::\    \  "${CL_CYN}
+	@echo -e ${CL_CYN}" /:::/\:::\   \:::\    \ |:::|    |     |:::|    | /:::/    /   \:::\ ___\  /:::/\:::\   \:::\____\ "${CL_CYN}
+	@echo -e ${CL_CYN}"/:::/  \:::\   \:::\____\|:::|____|     |:::|    |/:::/____/  ___\:::|    |/:::/  \:::\   \:::|    |"${CL_CYN}
+	@echo -e ${CL_CYN}"\::/    \:::\  /:::/    / \:::\    \   /:::/    / \:::\    \ /\  /:::|____|\::/    \:::\  /:::|____|"${CL_CYN}
+	@echo -e ${CL_CYN}" \/____/ \:::\/:::/    /   \:::\    \ /:::/    /   \:::\    /::\ \::/    /  \/_____/\:::\/:::/    / "${CL_CYN}
+	@echo -e ${CL_CYN}"          \::::::/    /     \:::\    /:::/    /     \:::\   \:::\ \/____/            \::::::/    /  "${CL_CYN}
+	@echo -e ${CL_CYN}"           \::::/    /       \:::\__/:::/    /       \:::\   \:::\____\               \::::/    /   "${CL_CYN}
+	@echo -e ${CL_CYN}"           /:::/    /         \::::::::/    /         \:::\  /:::/    /                \::/____/    "${CL_CYN}
+	@echo -e ${CL_CYN}"          /:::/    /           \::::::/    /           \:::\/:::/    /                  ~~          "${CL_CYN}
+	@echo -e ${CL_CYN}"         /:::/    /             \::::/    /             \::::::/    /                               "${CL_CYN}
+	@echo -e ${CL_CYN}"        /:::/    /               \::/____/               \::::/    /                                "${CL_CYN}
+	@echo -e ${CL_CYN}"        \::/    /                 ~~                      \::/____/                                 "${CL_CYN}
+	@echo -e ${CL_CYN}"         \/____/                                                                                    "${CL_CYN}
+	@echo -e ${CL_CYN}""${CL_CYN}
+	@echo -e ${CL_CYN}"===========-AOGP Package Complete-==========="${CL_RST}
+	@echo -e ${CL_CYN}"Zip: "${CL_MAG} $(AOGP_TARGET_PACKAGE)${CL_RST}
+	@echo -e ${CL_CYN}"MD5: "${CL_MAG}" `cat $(AOGP_TARGET_PACKAGE).md5sum | cut -d ' ' -f 1`"${CL_RST}
+	@echo -e ${CL_CYN}"Size:"${CL_MAG}" `ls -lah $(AOGP_TARGET_PACKAGE) | cut -d ' ' -f 5`"${CL_RST}
+	@echo -e ${CL_CYN}"============================================="${CL_RST}
+	@echo -e ""
 
 endif    # recovery_fstab is defined
 endif    # TARGET_NO_KERNEL != true
